@@ -1,0 +1,50 @@
+<!--<div class="todo-wrapper">
+    <h2>Hai <span class="emphasis">{{getTotalTodos()}}</span> cose da fare </h2>
+    <ul>
+        <li ng-repeat="todo in todos">
+            <input type="checkbox" ng-model="todo.done"/>
+            <span class="done-{{todo.done}}">{{todo.text}}</span>
+        </li>
+    </ul>
+    <form>
+        <input class="add-input" placeholder="Devo..." type="text" ng-model="formTodoText" ng-bind="" />
+        <button class="add-btn" ng-click="addTodo()" focus><h2>Aggiungi</h2></button>
+    </form>
+    
+    <button class="clear-btn" ng-click="clearCompleted()">Clear completed</button>
+</div>-->
+
+
+  <div class="container">
+      <h1>TO-DO or not TO-DO that is the question.</h1>
+      <p class="tagline">Just a random TODO app...</p>
+      <form>
+        <div class="inputContainer">
+          <input type="text" id="description" class="taskName" placeholder="What do you need to do?" ng-model="newTask">
+          <label for="description">Description</label>
+        </div>
+        <div class="inputContainer half last"> <i class="fa fa-caret-down selectArrow"></i>
+          <select id="category" class="taskCategory" ng-model="newTaskCategory" ng-options="obj.name for obj in categories">
+            <option class="disabled" value="">Choose a category</option>
+          </select>
+          <label for="category">Category</label>
+        </div>
+        <div class="inputContainer half last right">
+          <input type="date" id="dueDate" class="taskDate" ng-model="newTaskDate">
+          <label for="dueDate">Due Date</label>
+        </div>
+        <div class="row">
+          <button class="taskAdd" ng-click="addNew()"><i class="fa fa-plus icon"></i>Add task</button>
+          <button class="taskDelete" ng-click="deleteTask()"><i class="fa fa-trash-o icon"></i>Delete Tasks</button>
+        </div>
+      </form>
+      <ul  class="taskList">
+        <li class="taskItem" ng-repeat="taskItem in taskItem track by $index" ng-model="taskItem">
+          <input type="checkbox" class="taskCheckbox" ng-model="taskItem.complete" ng-change="save()">
+          <span class="complete-{{taskItem.complete}}">{{taskItem.description}}</span> <span class="category-{{taskItem.category}}">{{taskItem.category}}</span> <strong class="taskDate complete-{{taskItem.complete}}"><i class="fa fa-calendar"></i>{{taskItem.date | date : 'mediumDate'}}</strong> </li>
+      </ul>
+      <!--<div id="grid" ui-grid="gridOptions" class="grd" ui-grid-edit ui-grid-cellNav ui-grid-row-edit ui-grid-selection></div>-->
+    </div>
+
+
+ 
